@@ -1,0 +1,1 @@
+`app/api/subway-arrival/route.ts`는 fetch 응답에서 `res.ok`를 확인하지 않고 바로 `res.json()`을 호출한다(같은 커밋의 `app/api/calendar/route.ts`, `app/api/weather/route.ts`는 둘 다 `res.ok`를 먼저 확인한다). 비-2xx에 JSON이 아닌 본문이 오면 `catch`로 떨어져 여전히 합리적인 "가져오지 못했습니다" 메시지를 보여주므로 지금 당장 깨지지는 않지만, 세 라우트의 에러 처리 패턴을 통일하려면 이 라우트에도 `if (!res.ok)` 분기를 추가하면 된다.

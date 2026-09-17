@@ -1,0 +1,1 @@
+`lib/subway-departure.ts`의 `findTargetArrival`(단일 열차 조회)은 다음 열차 2개를 다루는 `findTargetArrivals`로 대체되어 프로덕션 코드(`app/api/subway-arrival/route.ts`)에서는 더 이상 쓰이지 않고, 자신의 테스트에서만 호출된다. 정리하려면 `findTargetArrival`과 그 테스트를 제거하면 된다.

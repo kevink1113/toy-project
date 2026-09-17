@@ -1,0 +1,1 @@
+`lib/weather.ts`의 `weatherIconKey`가 파일 상단 `PRECIPITATION_RANGES`(200-299/300-399/500-599/600-699)와 같은 날씨 코드 구간을 재사용하지 않고 별도 if-체인으로 다시 정의한다. 지금은 둘 다 정확하지만, 한쪽만 수정되면 강수 판정(`isPrecipitating`)과 아이콘 판정(`weatherIconKey`)이 어긋날 수 있다. 정리하려면 공통 구간 판정 로직을 하나로 추출해서 두 함수가 재사용하게 하면 된다.

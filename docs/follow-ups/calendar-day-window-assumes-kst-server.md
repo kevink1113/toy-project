@@ -1,0 +1,1 @@
+`app/api/calendar/route.ts`가 "오늘"의 자정~자정 범위(`dayStart`/`dayEnd`)를 서버의 로컬 타임존(`new Date(now.getFullYear(), now.getMonth(), now.getDate())`)으로 계산한다. 스펙은 "한국 표준시 자정~자정"을 요구하는데, 서버가 KST가 아닌 타임존(예: UTC 기반 배포 환경)에서 실행되면 오늘 일정 범위가 어긋난다. 지금은 개발 머신이 KST라 문제없지만, 다른 타임존 서버에 배포하면 `Asia/Seoul` 기준으로 명시적으로 날짜 경계를 계산하도록 고쳐야 한다.
